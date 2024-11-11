@@ -1,0 +1,204 @@
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+
+.game {
+  width: 600px;
+  height: 200px;
+  border-bottom: 1px solid #000;
+  margin: 0 auto;
+}
+
+#player {
+  width: 50px;
+  height: 50px;
+  background-image: url(./img/mario.png);
+  background-size: 50px 50px;
+  position: relative;
+  top: 150px;
+}
+
+#mashroom {
+  width: 40px;
+  height: 40px;
+  background-image: url(./img/mashroom.png);
+  background-size: 40px 40px;
+  position: relative;
+  top: 110px;
+  left: 560px;
+}
+
+.score-display {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: "Press Start 2P", cursive;
+  color: #fff;
+  font-size: 20px;
+  background-color: #333;
+  padding: 10px 20px;
+  border: 3px solid #ffcc00;
+  border-radius: 8px;
+  box-shadow: 2px 2px 0px #000;
+  text-align: center;
+  transition: transform 0.2s;
+}
+
+.score-display.animate {
+  transform: translateX(-50%) scale(1.2);
+}
+
+.start {
+  width: 600px;
+  height: 50px;
+  display: block;
+  margin: 20px auto;
+  background-color: #ffcc00;
+  color: #000;
+  font-family: "Press Start 2P", cursive;
+  font-size: 18px;
+  border: 3px solid #000;
+  border-radius: 8px;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  box-shadow: 4px 4px 0px #333;
+  transition: transform 0.1s ease-in-out;
+}
+
+.start:hover {
+  background-color: #ffd633;
+  box-shadow: 2px 2px 0px #333;
+  transform: scale(1.02);
+}
+
+.start:active {
+  background-color: #e6b800;
+  box-shadow: 1px 1px 0px #333;
+  transform: scale(0.98);
+}
+
+.animate {
+  animation: mashroomMove 2s infinite linear;
+}
+
+.active {
+  animation: jumpActive 0.3s linear;
+}
+
+@keyframes mashroomMove {
+  0% {
+    left: 560px;
+  }
+
+  100% {
+    left: -40px;
+  }
+}
+
+@keyframes jumpActive {
+  0% {
+    top: 150px;
+  }
+
+  20% {
+    top: 100px;
+  }
+
+  50% {
+    top: 50px;
+  }
+
+  80% {
+    top: 100px;
+  }
+
+  100% {
+    top: 150px;
+  }
+}
+
+body {
+  margin: 0;
+  overflow: hidden;
+  height: 100vh;
+  background-color: #87ceeb;
+  position: relative;
+}
+
+.hill {
+  position: absolute;
+  bottom: 0;
+  width: 200px;
+  height: 100px;
+  background-color: #228b22;
+  border-radius: 100px 100px 0 0;
+  box-shadow: 0px -10px 0px #2e8b57;
+}
+
+.hill-1 {
+  left: 10%;
+  width: 150px;
+}
+.hill-2 {
+  left: 40%;
+  width: 250px;
+}
+.hill-3 {
+  left: 70%;
+  width: 180px;
+}
+
+.cloud {
+  position: absolute;
+  top: 10%;
+  width: 100px;
+  height: 60px;
+  background-color: white;
+  border-radius: 50px;
+  box-shadow: 20px 0 0 0 white, -20px 0 0 0 white;
+  opacity: 0.8;
+  animation: moveClouds 20s linear infinite;
+}
+
+.cloud-1 {
+  left: -10%;
+  animation-delay: 0s;
+}
+.cloud-2 {
+  left: -30%;
+  animation-delay: 5s;
+}
+.cloud-3 {
+  left: -50%;
+  animation-delay: 10s;
+}
+
+@keyframes moveClouds {
+  0% {
+    transform: translateX(-100px);
+  }
+  100% {
+    transform: translateX(120vw);
+  }
+}
+
+.instructions {
+  font-size: 18px;
+  color: #fff;
+  background-color: #000;
+  border: 3px solid #fff;
+  border-radius: 8px;
+  padding: 10px 20px;
+  margin-top: 10px;
+  text-align: center;
+  font-family: "Press Start 2P", sans-serif;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  display: inline-block;
+}
+
+.instructions::before {
+  content: "🎮";
+  font-size: 24px;
+  margin-right: 10px;
+}
